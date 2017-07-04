@@ -1,43 +1,28 @@
 import React, { Component } from 'react';
 import { UserDetail, NotAvailable } from '.';
-import { fetchFromTwitch } from '../lib/helpers';
 
 export class User extends Component {
-	state = {
-		loading: true
-	}
-
-	componentDidMount() {
-		const name = this.props.name;
-		fetchFromTwitch(name)
-			.then(values => {
-				const [ channel, stream ] = [...values];
-				this.setState({
-					loading: false,
-					name,
-					error: channel.error,
-					displayName: channel.displayName,
-					logo: channel.logo,
-					url: channel.url,
-					status: channel.status,
-					stream: stream.stream
-				});
-			})
-			.catch(err => console.error('error in fetch'));
-	}
 
 	render() {
-		if (this.state.loading)
+		if (this.props.loading)
 			return (
 				<div className="animated-background">
 				</div>
 			);
-		if (this.state.error)
+		if (this.props.error)
 			return (
 				<NotAvailable name={this.props.name} handleRemove={this.props.handleRemove} />
 			);
 		return (
-			<UserDetail {...this.state} handleRemove={this.props.handleRemove} />
+			<UserDetail 
+				name={this.props.name}
+				displayName={this.props.displayName}
+				stream={this.props.stream}
+				status={this.props.status}
+				url={this.props.url}
+				logo={this.props.logo}
+				handleRemove={this.props.handleRemove}
+			/>
 		);		
 	}
 }

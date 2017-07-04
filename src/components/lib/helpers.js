@@ -53,3 +53,15 @@ export const fetchFromTwitch = (name) => {
 
 	return Promise.all([channels, streams]);
 };
+
+export const filterUsers = (data, route) => {
+	const users = Object.keys(data);
+	switch (route) {
+		case "/online":
+			return users.filter(user => data[user].stream);
+		case "/offline":
+			return users.filter(user => !data[user].stream);
+		default:
+			return users;
+	}
+}

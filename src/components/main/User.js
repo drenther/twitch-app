@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { UserDetail, NotAvailable } from '.';
-import { fetchFromTwitch } from '../lib/helpers';
+import { fetchChannelData } from '../lib/helpers';
 
 export class User extends Component {
 	state = {
@@ -9,9 +9,8 @@ export class User extends Component {
 
 	componentDidMount() {
 		const name = this.props.name;
-		fetchFromTwitch(name)
-			.then(values => {
-				const [ channel, stream ] = [...values];
+		fetchChannelData(name)
+			.then(channel => {
 				this.setState({
 					loading: false,
 					name,
@@ -20,10 +19,14 @@ export class User extends Component {
 					logo: channel.logo,
 					url: channel.url,
 					status: channel.status,
-					stream: stream.stream
+					stream: this.props.stream
 				});
 			})
 			.catch(err => console.error('error in fetch'));
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({stream: nextProps.stream});	
 	}
 
 	render() {

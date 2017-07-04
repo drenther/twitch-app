@@ -70,12 +70,13 @@ html {
       flex-grow: 1;
       width: 100%;
       max-width: 100px;
-      height: 97%; }
+      height: 97%;
+      cursor: pointer; }
     .header .adduser input {
       width: 100%;
-      text-indent: 10px;
+      text-indent: 5px;
       border-radius: 18px;
-      margin-left: 10px;
+      margin-left: 5px;
       font-size: 1.3em;
       color: #6441a5; }
   .header .tabs {

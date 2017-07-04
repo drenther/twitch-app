@@ -30,8 +30,8 @@ export const removeUser = (user, users) => {
 	return updatedUsers;
 };
 
-export const fetchFromTwitch = (name) => {
-	const channels = fetch(`https://cors-anywhere.herokuapp.com/https://wind-bow.gomix.me/twitch-api/channels/${name}`)
+export const fetchChannelData = (name) => {
+	const channel = fetch(`https://cors-anywhere.herokuapp.com/https://wind-bow.gomix.me/twitch-api/channels/${name}`)
 		.then(res => res.json())
 		.then(json => {
 			return {
@@ -43,13 +43,27 @@ export const fetchFromTwitch = (name) => {
 			};
 		});
 
-	const streams = fetch(`https://cors-anywhere.herokuapp.com/https://wind-bow.gomix.me/twitch-api/streams/${name}`)
+	return channel;
+};
+
+export const fetchStreamData = (name) => {
+	const stream = fetch(`https://cors-anywhere.herokuapp.com/https://wind-bow.gomix.me/twitch-api/streams/${name}`)
 		.then(res => res.json())
 		.then(json => {
-			return {
-				stream: json.stream
-			};
+			return [name, json.stream];
 		});
 
-	return Promise.all([channels, streams]);
+	return stream;
+};
+
+export const filterUsers = (usersStream, route) => {
+	const users = Object.keys(usersStream);
+	switch (route) {
+		case "/online":
+			return users.filter(user => usersStream[user].stream);
+		case "/offline":
+			return users.filter(user => !usersStream[user].stream);
+		default:
+			return users;
+	}
 };

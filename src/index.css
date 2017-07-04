@@ -1,0 +1,252 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  outline: rgba(100, 65, 165, 0.1); }
+
+a,
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: inherit; }
+
+button {
+  cursor: pointer; }
+
+body,
+html {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0; }
+
+.logo {
+  margin: 10px 0;
+  width: 95vw;
+  padding: 10px;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 5em;
+  color: #6441a5; }
+
+.header {
+  margin: 10px 0;
+  width: 95vw;
+  padding: 10px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+  .header .adduser {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    border: solid 2px #6441a5;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px; }
+    .header .adduser span {
+      color: #fff;
+      background-color: #6441a5;
+      border-radius: 18px;
+      padding: 6px;
+      flex-grow: 1;
+      width: 100%;
+      max-width: 100px;
+      height: 97%; }
+    .header .adduser input {
+      width: 100%;
+      text-indent: 10px;
+      border-radius: 18px;
+      margin-left: 10px;
+      font-size: 1.3em;
+      color: #6441a5; }
+  .header .tabs {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .header .tabs a.tab {
+      padding: 5px;
+      text-align: center;
+      width: 80px;
+      color: #6441a5;
+      border: solid 2px #6441a5;
+      border-radius: 20px;
+      transition: all 0.3s ease-out; }
+      .header .tabs a.tab:hover {
+        background: rgba(100, 65, 165, 0.1); }
+      .header .tabs a.tab.active {
+        background: #6441a5;
+        color: #fff; }
+
+.main {
+  margin: 10px 0;
+  width: 95vw;
+  padding: 10px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+
+.not-available {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+  padding: 50px;
+  background-color: #6441a5;
+  font-weight: 600px;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+  .not-available .details {
+    min-width: 0;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .not-available .remove {
+    font-weight: 600px;
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    font-size: 18px; }
+
+.user {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  border: solid 2px rgba(100, 65, 165, 0.3);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.3s ease-out; }
+  .user:hover {
+    background-color: rgba(100, 65, 165, 0.1); }
+  .user .left {
+    flex-basis: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; }
+    .user .left img {
+      width: auto;
+      height: 80px;
+      border-radius: 40px; }
+  .user .center {
+    flex-basis: 65%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 0; }
+    .user .center .display-name {
+      font-weight: 800;
+      font-size: 16px;
+      color: #6441a5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%; }
+    .user .center .name {
+      font-size: 14px;
+      font-weight: 400px;
+      color: rgba(100, 65, 165, 0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%; }
+    .user .center .status {
+      color: rgba(100, 65, 165, 0.7);
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%; }
+  .user .right {
+    flex-basis: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+    .user .right .remove {
+      font-weight: 600px;
+      color: #6441a5;
+      background-color: transparent;
+      border: 0;
+      font-size: 18px; }
+    .user .right .indicator {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%; }
+      .user .right .indicator.offline {
+        background-color: #ff1a05;
+        animation: neon-red 1.5s ease-in-out infinite alternate; }
+      .user .right .indicator.online {
+        background-color: #B6FF00;
+        animation: neon-green 1.5s ease-in-out infinite alternate; }
+
+.animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 100px;
+  margin: 10px 0;
+  border-radius: 50px;
+  width: 100%;
+  height: 100px; }
+
+@keyframes shimmer {
+  from {
+    background-position: -800px 0; }
+  to {
+    background-position: 800px 0; } }
+@keyframes neon-red {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1a05, 0 0 70px #ff1a05, 0 0 80px #ff1a05, 0 0 100px #ff1a05, 0 0 150px #ff1a05; }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1a05, 0 0 35px #ff1a05, 0 0 40px #ff1a05, 0 0 50px #ff1a05, 0 0 75px #ff1a05; } }
+@keyframes neon-green {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00; }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #B6FF00, 0 0 35px #B6FF00, 0 0 40px #B6FF00, 0 0 50px #B6FF00, 0 0 75px #B6FF00; } }
+
+/*# sourceMappingURL=index.css.map */

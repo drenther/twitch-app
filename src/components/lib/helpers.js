@@ -1,5 +1,5 @@
 export const fetchUsers = () => {
-	const defaultUsers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "comster404", "clickerheroesbot"];
+	const defaultUsers = ["OgamingSC2", "freecodecamp", "comster404", "voyboy", "hotshotgg", "dyrus", "doublelift"];
 	if (window.localStorage) {
 		const cachedUsers = localStorage.getItem('twitch-users');
 		if (cachedUsers) {
